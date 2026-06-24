@@ -1,98 +1,184 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🛒 E-Commerce Backend API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A scalable and secure **E-Commerce Backend System** built with **NestJS**, **MongoDB**, and modern backend best practices. The system supports full e-commerce workflow including authentication, products, cart, orders, coupons, payments, and role-based access control.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?logo=jsonwebtokens) ![Stripe](https://img.shields.io/badge/Stripe-635BFF?logo=stripe&logoColor=white)
 
-## Description
+## 🔗 Project Links
+- Repository: https://github.com/lujainIbrahem/E-cmmerce.git  
+- API Documentation: https://documenter.getpostman.com/view/44975525/2sB3WpRMEX  
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## ⚙️ Features
 
-## Project setup
+### Authentication & Authorization
+- User registration and login  
+- Google OAuth integration  
+- JWT Access & Refresh tokens  
+- Role-Based Access Control (User / Admin)  
+- Secure password hashing (bcrypt)  
+- OTP verification & password reset  
 
-```bash
-$ npm install
-```
+### Product System
+- CRUD operations for products (Admin)  
+- Categories & Subcategories  
+- Brand management  
+- Image upload via Cloudinary  
 
-## Compile and run the project
+### Cart System
+- Add / update / remove items  
+- Quantity management  
+- User-specific cart  
 
-```bash
-# development
-$ npm run start
+### Order System
+- Create orders from cart  
+- Order status tracking  
+- Order history per user  
+- Admin order management  
 
-# watch mode
-$ npm run start:dev
+### Coupons System
+- Create & manage coupons  
+- Apply discount codes  
+- Expiration & usage validation  
 
-# production mode
-$ npm run start:prod
-```
+### Payments
+- Stripe payment integration  
+- Secure checkout flow  
+- Payment confirmation handling  
 
-## Run tests
+## 🔐 Security Implementation
+- JWT authentication strategy  
+- Token revocation (logout security)  
+- Helmet middleware protection  
+- CORS configuration  
+- Rate limiting protection  
+- Input validation using DTOs  
 
-```bash
-# unit tests
-$ npm run test
+## ☁️ File Storage
+- Multer for file handling  
+- Cloudinary integration  
+- Image upload optimization  
 
-# e2e tests
-$ npm run test:e2e
+## 🧱 Tech Stack
 
-# test coverage
-$ npm run test:cov
-```
+Backend:
+- NestJS
+- Node.js
 
-## Deployment
+Database:
+- MongoDB
+- Mongoose
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Auth & Security:
+- JWT
+- bcrypt
+- Crypto
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Payments:
+- Stripe API
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+Storage:
+- Cloudinary
+- Multer
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🗄 Database Models
+- User → authentication, roles, profile  
+- Product → product data, pricing, stock  
+- Category / SubCategory → product organization  
+- Brand → product branding  
+- Cart → shopping cart  
+- Order → order processing  
+- Coupon → discounts  
+- OTP → verification codes  
+- Token blacklist → revoked sessions  
 
-## Resources
+## 🔄 System Flow
 
-Check out a few resources that may come in handy when working with NestJS:
+Authentication Flow: User Login → Validate Credentials → Generate Tokens → Access Protected Routes → Refresh Token when expired  
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Order Flow: Add to Cart → Apply Coupon → Create Order → Pay via Stripe → Confirm Order → Update Status  
 
-## Support
+## 🏗 Project Structure
+src/ ├── common/ ├── module/ │ ├── user/ │ ├── product/ │ ├── cart/ │ ├── order/ │ ├── category/ │ ├── brand/ │ ├── coupon/ │ └── gateway/ ├── Db/ ├── utils/ └── main.ts  
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📦 Installation
+git clone https://github.com/lujainIbrahem/E-cmmerce.git  
+cd E-cmmerce  
+npm install  
+npm run start:dev  
 
-## Stay in touch
+## ⚙️ Environment Variables
+PORT=  
+MONGO_URL=  
+EMAIL=  
+PASS=  
+SALT_ROUND=  
+ENCRYPT_PHONE=  
+SIGNATURE=  
+ACCESS_TOKEN_USER=  
+ACCESS_TOKEN_ADMIN=  
+REFRESH_TOKEN_USER=  
+REFRESH_TOKEN_ADMIN=  
+CLOUD_NAME=  
+API_KEY=  
+API_SECRET=  
+WEB_CLIENT_ID=  
+FRONT_ORIGIN=  
+SECRET_STRIPE_KEY=  
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 📌 API Endpoints
 
-## License
+Auth:
+POST /auth/signUp  
+POST /auth/signIn  
+POST /auth/logout  
+POST /auth/refreshToken  
+POST /auth/google  
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Users:
+GET /users/profile  
+PATCH /users/updateProfile  
+
+Products:
+POST /product  
+GET /product  
+GET /product/:id  
+PATCH /product/:id  
+DELETE /product/:id  
+
+Cart:
+POST /cart  
+GET /cart  
+PATCH /cart  
+DELETE /cart  
+
+Orders:
+POST /order  
+GET /order  
+PATCH /order/:id  
+
+Coupons:
+POST /coupon  
+GET /coupon  
+
+## 🎯 Key Highlights
+- Modular NestJS architecture  
+- Secure authentication system  
+- Scalable backend design  
+- Stripe payment integration  
+- Cloudinary file storage  
+- Clean REST API design  
+
+## 🚀 Future Improvements
+- Swagger documentation  
+- Docker support  
+- Unit & integration testing  
+- WebSocket real-time updates  
+- Admin dashboard UI  
+
+## 👩‍💻 Author
+Lujain Ibrahim  
+Backend Developer  
+GitHub: https://github.com/lujainIbrahem  
+
+## 📄 License
+This project is intended for educational and portfolio purposes.
