@@ -1,6 +1,9 @@
-# 🛒 E-Commerce Backend API
+# 🛒 E-Commerce Backend API (NestJS)
 
-A scalable and secure **E-Commerce Backend System** built with **NestJS**, **MongoDB**, and modern backend architecture best practices. The system implements a complete e-commerce workflow including authentication, product management, cart, orders, coupons, payments, and role-based access control.
+A scalable and secure **E-Commerce Backend System** built with **NestJS**, **MongoDB**, and modern backend architecture principles.  
+The system is designed using a **modular architecture** following NestJS best practices with separation of concerns across modules, services, controllers, and shared common layer.
+
+It supports full e-commerce workflow including authentication, products, cart, orders, coupons, payments, and real-time features.
 
 ![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
@@ -9,122 +12,179 @@ A scalable and secure **E-Commerce Backend System** built with **NestJS**, **Mon
 ![Stripe](https://img.shields.io/badge/Stripe-635BFF?logo=stripe&logoColor=white)
 
 ## 🔗 Project Links
-
 - GitHub Repository: https://github.com/lujainIbrahem/E-cmmerce.git  
 - API Documentation: https://documenter.getpostman.com/view/44975525/2sB3WpRMEX  
 
+---
+
 ## 🚀 Features
 
-### 🔐 Authentication & Authorization
-- User registration and login
+### 🔐 Authentication Module
+- User registration & login
 - Google OAuth integration
-- JWT Access & Refresh Tokens
+- JWT Access & Refresh tokens
 - Role-Based Access Control (User / Admin)
-- Secure password hashing using bcrypt
-- OTP verification and password reset
+- OTP verification system
+- Password reset & update password
+- Token revocation (logout system)
 
-### 🛍 Product Management
-- Full CRUD operations for products (Admin only)
-- Categories & Subcategories system
-- Brand management
-- Image upload using Cloudinary
-- Product stock & pricing management
+---
 
-### 🛒 Cart System
-- Add / update / remove products
-- Quantity management
+### 👤 User Module
+- Profile management
+- Update user data
+- Secure user session handling
+
+---
+
+### 🛍 Product Module
+- Full CRUD operations (Admin)
+- Product image upload (Cloudinary)
+- Stock & price management
+- Product listing & details
+- Category & SubCategory relation
+
+---
+
+### 🗂 Category & Brand Modules
+- Category management
+- SubCategory mapping
+- Brand management system
+
+---
+
+### 🛒 Cart Module
+- Add / update / remove items
+- Quantity control
 - User-specific cart
-- Persistent cart per user
 
-### 📦 Order System
+---
+
+### 📦 Order Module
 - Create order from cart
 - Order status tracking
 - Order history per user
 - Admin order management
 
-### 🎟 Coupon System
-- Create and manage coupons (Admin)
-- Apply discount codes
-- Expiration & usage validation
-- Percentage / fixed discounts support
+---
+
+### 🎟 Coupon Module
+- Create & validate coupons
+- Discount system (percentage / fixed)
+- Expiration handling
+
+---
 
 ### 💳 Payment Integration
-- Stripe payment gateway integration
-- Secure checkout process
-- Payment confirmation handling
-- Order payment status tracking
+- Stripe checkout integration
+- Payment confirmation flow
+- Secure transaction handling
 
-## 🔐 Security Features
-- JWT Authentication strategy
-- Refresh token system
-- Token revocation (logout security)
-- Helmet security middleware
-- CORS protection
+---
+
+### 🔌 Gateway Module
+- WebSocket gateway support (real-time structure ready)
+
+---
+
+## 🔐 Security Implementation (Common Layer)
+- JWT authentication guard
+- Authorization guard (RBAC)
+- Helmet security
+- CORS configuration
 - Rate limiting
-- Input validation using DTOs
+- DTO validation
+- Token encryption & signature system
 
-## ☁️ File Handling
-- Multer for file uploads
+---
+
+## ☁️ File Upload System (Utils)
+- Multer local & cloud storage
 - Cloudinary integration
-- Image optimization and storage
+- File validation middleware
+
+---
 
 ## 🧱 Tech Stack
 
-Backend:
+**Backend Framework**
 - NestJS
+
+**Runtime**
 - Node.js
 
-Database:
-- MongoDB
-- Mongoose
+**Database**
+- MongoDB (Mongoose)
 
-Authentication & Security:
+**Auth & Security**
 - JWT
 - bcrypt
 - Crypto
 
-Payments:
+**Payments**
 - Stripe API
 
-Storage:
+**Storage**
 - Cloudinary
 - Multer
 
-## 🗄 Database Models
-- User → authentication, roles, profile
-- Product → product details, stock, price
-- Category / SubCategory → product grouping
-- Brand → product branding
-- Cart → shopping cart system
-- Order → order processing
-- Coupon → discount system
-- OTP → verification system
-- Token Blacklist → revoked sessions
+---
 
-## 🔄 System Flow
+## 🗄 Database Layer (Db Module)
 
-Authentication Flow:
-User Login → Validate Credentials → Generate Access Token → Generate Refresh Token → Access Protected Routes → Refresh Token when expired
+- User Model
+- Product Model
+- Category Model
+- SubCategory Model
+- Brand Model
+- Cart Model
+- Order Model
+- Coupon Model
+- OTP Model
 
-Order Flow:
-Add to Cart → Apply Coupon → Create Order → Pay via Stripe → Confirm Order → Update Status
+---
 
-## 🏗 Project Structure
+## 🔄 System Architecture Flow
+
+### Authentication Flow
+User → Auth Module → Validate Credentials → Generate JWT Tokens → Guards → Protected Routes
+
+### Order Flow
+Cart → Coupon Validation → Order Creation → Stripe Payment → Order Confirmation → Status Update
+
+---
+
+## 🏗 Project Structure (NestJS)
 
 src
 ├── common
+│   ├── decorators
+│   ├── guards
+│   ├── middleware
+│   ├── enums
+│   ├── interfaces
+│   └── services
 ├── module
+│   ├── auth
 │   ├── user
 │   ├── product
 │   ├── cart
 │   ├── order
 │   ├── category
+│   ├── subCategory
 │   ├── brand
 │   ├── coupon
 │   └── gateway
 ├── Db
+│   ├── models
+│   └── repositories
 ├── utils
+│   ├── multer
+│   ├── hash
+│   └── email
 └── main.ts
+
+---
 
 ## 📦 Installation
 
@@ -132,6 +192,8 @@ git clone https://github.com/lujainIbrahem/E-cmmerce.git
 cd E-cmmerce  
 npm install  
 npm run start:dev  
+
+---
 
 ## ⚙️ Environment Variables
 
@@ -162,62 +224,72 @@ FRONT_ORIGIN=
 
 SECRET_STRIPE_KEY=  
 
+---
+
 ## 📌 API Endpoints
 
-Auth:
+### Auth Module
 POST /auth/signUp  
 POST /auth/signIn  
 POST /auth/logout  
 POST /auth/refreshToken  
 POST /auth/google  
 
-Users:
+### User Module
 GET /users/profile  
 PATCH /users/updateProfile  
 
-Products:
+### Product Module
 POST /product  
 GET /product  
 GET /product/:id  
 PATCH /product/:id  
 DELETE /product/:id  
 
-Cart:
+### Cart Module
 POST /cart  
 GET /cart  
 PATCH /cart  
 DELETE /cart  
 
-Orders:
+### Order Module
 POST /order  
 GET /order  
 PATCH /order/:id  
 
-Coupons:
+### Coupon Module
 POST /coupon  
 GET /coupon  
 
+---
+
 ## 🎯 Key Highlights
-- Modular NestJS architecture  
-- Secure authentication system (JWT + Refresh Token)  
-- Role-based authorization  
-- Stripe payment integration  
-- Cloudinary file storage  
-- Clean scalable REST API design  
-- Production-ready backend structure  
+- Real NestJS modular architecture  
+- Clean separation of modules (auth/product/order/etc)  
+- Secure JWT + refresh token system  
+- Scalable DB design with repositories layer  
+- Cloudinary + Multer integration  
+- Stripe payment gateway  
+- Production-level backend structure  
+
+---
 
 ## 🚀 Future Improvements
 - Swagger API documentation  
-- Docker containerization  
+- Docker support  
 - Unit & integration testing  
-- WebSocket real-time notifications  
+- WebSocket real-time updates  
 - Admin dashboard UI  
-- Advanced analytics system  
+- Caching with Redis  
+
+---
 
 ## 👩‍💻 Author
 Lujain Ibrahim  
 Backend Developer  
 GitHub: https://github.com/lujainIbrahem  
+
+---
 
 ## 📄 License
 This project is for educational and portfolio purposes only.
