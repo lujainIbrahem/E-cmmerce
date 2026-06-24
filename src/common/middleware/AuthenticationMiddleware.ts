@@ -21,7 +21,7 @@ export class AuthenticationMiddleware implements NestMiddleware {
 
     ){}
   async use(req: UserReq, res: Response, next: NextFunction) {
-try {
+
  const { authorization }= req.headers
 var [prefix,token ] =authorization?.split(" ") || [] 
 if(!prefix || !token)
@@ -41,9 +41,6 @@ req.decoded =decoded?.decoded
 
    return next();
   }   
- catch (error) {
-        throw new BadRequestException(error.message);
-
-}
-  }
+ 
+  
 }

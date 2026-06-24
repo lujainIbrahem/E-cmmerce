@@ -1,62 +1,72 @@
 # 🛒 E-Commerce Backend API
 
-A scalable and secure **E-Commerce Backend System** built with **NestJS**, **MongoDB**, and modern backend best practices. The system supports full e-commerce workflow including authentication, products, cart, orders, coupons, payments, and role-based access control.
+A scalable and secure **E-Commerce Backend System** built with **NestJS**, **MongoDB**, and modern backend architecture best practices. The system implements a complete e-commerce workflow including authentication, product management, cart, orders, coupons, payments, and role-based access control.
 
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white) ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?logo=jsonwebtokens) ![Stripe](https://img.shields.io/badge/Stripe-635BFF?logo=stripe&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?logo=node.js&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?logo=jsonwebtokens)
+![Stripe](https://img.shields.io/badge/Stripe-635BFF?logo=stripe&logoColor=white)
 
 ## 🔗 Project Links
-- Repository: https://github.com/lujainIbrahem/E-cmmerce.git  
+
+- GitHub Repository: https://github.com/lujainIbrahem/E-cmmerce.git  
 - API Documentation: https://documenter.getpostman.com/view/44975525/2sB3WpRMEX  
 
-## ⚙️ Features
+## 🚀 Features
 
-### Authentication & Authorization
-- User registration and login  
-- Google OAuth integration  
-- JWT Access & Refresh tokens  
-- Role-Based Access Control (User / Admin)  
-- Secure password hashing (bcrypt)  
-- OTP verification & password reset  
+### 🔐 Authentication & Authorization
+- User registration and login
+- Google OAuth integration
+- JWT Access & Refresh Tokens
+- Role-Based Access Control (User / Admin)
+- Secure password hashing using bcrypt
+- OTP verification and password reset
 
-### Product System
-- CRUD operations for products (Admin)  
-- Categories & Subcategories  
-- Brand management  
-- Image upload via Cloudinary  
+### 🛍 Product Management
+- Full CRUD operations for products (Admin only)
+- Categories & Subcategories system
+- Brand management
+- Image upload using Cloudinary
+- Product stock & pricing management
 
-### Cart System
-- Add / update / remove items  
-- Quantity management  
-- User-specific cart  
+### 🛒 Cart System
+- Add / update / remove products
+- Quantity management
+- User-specific cart
+- Persistent cart per user
 
-### Order System
-- Create orders from cart  
-- Order status tracking  
-- Order history per user  
-- Admin order management  
+### 📦 Order System
+- Create order from cart
+- Order status tracking
+- Order history per user
+- Admin order management
 
-### Coupons System
-- Create & manage coupons  
-- Apply discount codes  
-- Expiration & usage validation  
+### 🎟 Coupon System
+- Create and manage coupons (Admin)
+- Apply discount codes
+- Expiration & usage validation
+- Percentage / fixed discounts support
 
-### Payments
-- Stripe payment integration  
-- Secure checkout flow  
-- Payment confirmation handling  
+### 💳 Payment Integration
+- Stripe payment gateway integration
+- Secure checkout process
+- Payment confirmation handling
+- Order payment status tracking
 
-## 🔐 Security Implementation
-- JWT authentication strategy  
-- Token revocation (logout security)  
-- Helmet middleware protection  
-- CORS configuration  
-- Rate limiting protection  
-- Input validation using DTOs  
+## 🔐 Security Features
+- JWT Authentication strategy
+- Refresh token system
+- Token revocation (logout security)
+- Helmet security middleware
+- CORS protection
+- Rate limiting
+- Input validation using DTOs
 
-## ☁️ File Storage
-- Multer for file handling  
-- Cloudinary integration  
-- Image upload optimization  
+## ☁️ File Handling
+- Multer for file uploads
+- Cloudinary integration
+- Image optimization and storage
 
 ## 🧱 Tech Stack
 
@@ -68,7 +78,7 @@ Database:
 - MongoDB
 - Mongoose
 
-Auth & Security:
+Authentication & Security:
 - JWT
 - bcrypt
 - Crypto
@@ -81,48 +91,75 @@ Storage:
 - Multer
 
 ## 🗄 Database Models
-- User → authentication, roles, profile  
-- Product → product data, pricing, stock  
-- Category / SubCategory → product organization  
-- Brand → product branding  
-- Cart → shopping cart  
-- Order → order processing  
-- Coupon → discounts  
-- OTP → verification codes  
-- Token blacklist → revoked sessions  
+- User → authentication, roles, profile
+- Product → product details, stock, price
+- Category / SubCategory → product grouping
+- Brand → product branding
+- Cart → shopping cart system
+- Order → order processing
+- Coupon → discount system
+- OTP → verification system
+- Token Blacklist → revoked sessions
 
 ## 🔄 System Flow
 
-Authentication Flow: User Login → Validate Credentials → Generate Tokens → Access Protected Routes → Refresh Token when expired  
+Authentication Flow:
+User Login → Validate Credentials → Generate Access Token → Generate Refresh Token → Access Protected Routes → Refresh Token when expired
 
-Order Flow: Add to Cart → Apply Coupon → Create Order → Pay via Stripe → Confirm Order → Update Status  
+Order Flow:
+Add to Cart → Apply Coupon → Create Order → Pay via Stripe → Confirm Order → Update Status
 
 ## 🏗 Project Structure
-src/ ├── common/ ├── module/ │ ├── user/ │ ├── product/ │ ├── cart/ │ ├── order/ │ ├── category/ │ ├── brand/ │ ├── coupon/ │ └── gateway/ ├── Db/ ├── utils/ └── main.ts  
+
+src
+├── common
+├── module
+│   ├── user
+│   ├── product
+│   ├── cart
+│   ├── order
+│   ├── category
+│   ├── brand
+│   ├── coupon
+│   └── gateway
+├── Db
+├── utils
+└── main.ts
 
 ## 📦 Installation
+
 git clone https://github.com/lujainIbrahem/E-cmmerce.git  
 cd E-cmmerce  
 npm install  
 npm run start:dev  
 
 ## ⚙️ Environment Variables
+
 PORT=  
 MONGO_URL=  
+
 EMAIL=  
 PASS=  
+
 SALT_ROUND=  
 ENCRYPT_PHONE=  
+
 SIGNATURE=  
+
 ACCESS_TOKEN_USER=  
 ACCESS_TOKEN_ADMIN=  
+
 REFRESH_TOKEN_USER=  
 REFRESH_TOKEN_ADMIN=  
+
 CLOUD_NAME=  
 API_KEY=  
 API_SECRET=  
+
 WEB_CLIENT_ID=  
+
 FRONT_ORIGIN=  
+
 SECRET_STRIPE_KEY=  
 
 ## 📌 API Endpoints
@@ -162,18 +199,20 @@ GET /coupon
 
 ## 🎯 Key Highlights
 - Modular NestJS architecture  
-- Secure authentication system  
-- Scalable backend design  
+- Secure authentication system (JWT + Refresh Token)  
+- Role-based authorization  
 - Stripe payment integration  
 - Cloudinary file storage  
-- Clean REST API design  
+- Clean scalable REST API design  
+- Production-ready backend structure  
 
 ## 🚀 Future Improvements
-- Swagger documentation  
-- Docker support  
+- Swagger API documentation  
+- Docker containerization  
 - Unit & integration testing  
-- WebSocket real-time updates  
+- WebSocket real-time notifications  
 - Admin dashboard UI  
+- Advanced analytics system  
 
 ## 👩‍💻 Author
 Lujain Ibrahim  
@@ -181,4 +220,4 @@ Backend Developer
 GitHub: https://github.com/lujainIbrahem  
 
 ## 📄 License
-This project is intended for educational and portfolio purposes.
+This project is for educational and portfolio purposes only.
